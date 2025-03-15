@@ -1,26 +1,30 @@
-<h2>Log in</h2>
-
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
-
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+<div class="container my-10 mx-auto max-w-xs sm:max-w-md md:max-w-lg lg:max-w-xl shadow-md  py-4 px-6 sm:px-10 bg-white border-emerald-500 rounded-md">
+  <h3 class="text-lg font-semibold text-slate-800"> Log in</h3>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="field my-5">
+      <%= f.label :email, class: "text-sm font-semibold text-slate-700" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full" %>
+    </div>
+    <div class="field my-5">
+      <%= f.label :password, class: "text-sm font-semibold text-slate-700" %><br />
+      <%= f.password_field :password, autocomplete: "current-password", class: "block shadow-sm rounded-md border px-3 py-2 mt-2 w-full" %>
+    </div>
+    <% if devise_mapping.rememberable? %>
+      <div class="field my-5 flex items-center gap-2">
+        <%= f.label :remember_me, class: "text-sm font-semibold text-slate-700" %>
+        <%= f.check_box :remember_me, class: "block shadow-sm rounded-md border order-first h-5 w-5" %>
+      </div>
+    <% end %>
+    <div class="actions">
+      <%= f.submit "Log in", class: "flex select-none items-center gap-2 rounded bg-slate-800 py-2.5 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:bg-slate-800/70 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none cursor-pointer" %>
     </div>
   <% end %>
-
-  <div class="actions">
-    <%= f.submit "Log in" %>
+  <div class="flex justify-between *:text-sm *:underline font-light mt-8">
+    <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+      <%= link_to "Create new account", new_registration_path(resource_name) %>
+    <% end %>
+    <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+      <%= link_to "Forgot password?", new_password_path(resource_name) %>
+    <% end %>
   </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>
