@@ -2,7 +2,6 @@
   <% if user.errors.any? %>
     <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-md mt-3">
       <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
       <ul class="list-disc ml-6">
         <% user.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,38 +9,34 @@
       </ul>
     </div>
   <% end %>
-
   <div class="my-5">
-    <%= form.label :name %>
+    <%= form.label :name, class: "text-sm font-semibold text-slate-700" %>
     <%= form.text_field :name, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:name].none?, "border-red-400 focus:outline-red-600": user.errors[:name].any?}] %>
   </div>
-
   <div class="my-5">
-    <%= form.label :email %>
+    <%= form.label :email, class: "text-sm font-semibold text-slate-700" %>
     <%= form.text_field :email, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:email].none?, "border-red-400 focus:outline-red-600": user.errors[:email].any?}] %>
   </div>
-
   <div class="my-5">
-    <%= form.label :phone %>
+    <%= form.label :phone, class: "text-sm font-semibold text-slate-700" %>
     <%= form.text_field :phone, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:phone].none?, "border-red-400 focus:outline-red-600": user.errors[:phone].any?}] %>
   </div>
-
   <div class="my-5">
-    <%= form.label :last_signed_in %>
+    <%= form.label :last_signed_in, class: "text-sm font-semibold text-slate-700" %>
     <%= form.datetime_field :last_signed_in, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:last_signed_in].none?, "border-red-400 focus:outline-red-600": user.errors[:last_signed_in].any?}] %>
   </div>
-
   <div class="my-5">
-    <%= form.label :access_expiry_date %>
+    <%= form.label :access_expiry_date, class: "text-sm font-semibold text-slate-700"%>
     <%= form.datetime_field :access_expiry_date, class: ["block shadow-sm rounded-md border px-3 py-2 mt-2 w-full", {"border-gray-400 focus:outline-blue-600": user.errors[:access_expiry_date].none?, "border-red-400 focus:outline-red-600": user.errors[:access_expiry_date].any?}] %>
   </div>
-
   <div class="my-5 flex items-center gap-2">
-    <%= form.label :is_active %>
+    <%= form.label :is_active, class: "text-sm font-semibold text-slate-700" %>
     <%= form.checkbox :is_active, class: ["block shadow-sm rounded-md border order-first h-5 w-5", {"border-gray-400 focus:outline-blue-600": user.errors[:is_active].none?, "border-red-400 focus:outline-red-600": user.errors[:is_active].any?}] %>
   </div>
+  <div class="flex justify-between items-center mt-10">
+    <%= form.submit "Add member", class: "flex select-none items-center gap-2 rounded bg-slate-800 hover:bg-slate-800/80 py-2.5 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:shadow-lg hover:shadow-slate-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none cursor-pointer" %>
 
-  <div class="inline">
-    <%= form.submit class: "w-full sm:w-auto rounded-md px-3.5 py-2.5 bg-blue-600 hover:bg-blue-500 text-white inline-block font-medium cursor-pointer" %>
+    <%= link_to "Back to users", users_path, class: "flex select-none items-center gap-2 rounded bg-slate-800 hover:bg-slate-800/80 py-2.5 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:shadow-lg hover:shadow-slate-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none cursor-pointer" %>
   </div>
 <% end %>
+

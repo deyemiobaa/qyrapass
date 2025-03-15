@@ -9,11 +9,11 @@
     <p class="text-sm font-semibold text-slate-700"><%= user.phone %></p>
   </td>
   <td class="p-4 border-b border-slate-200">
-    <p class="text-sm text-slate-500"><%= user.last_signed_in.strftime("%d %b, %Y")
+    <p class="text-sm text-slate-500"><%= user.last_signed_in&.strftime("%d %b, %Y")
  %></p>
   </td>
   <td class="p-4 border-b border-slate-200">
-    <p class="text-sm text-slate-500"><%= user.access_expiry_date.strftime("%d %b, %Y")
+    <p class="text-sm text-slate-500"><%= user.access_expiry_date&.strftime("%d %b, %Y")
  %></p>
   </td>
   <td class="p-4 border-b border-slate-200">
