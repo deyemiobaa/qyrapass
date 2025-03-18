@@ -65,3 +65,9 @@ end
 gem "devise", "~> 4.9"
 
 gem "tailwindcss-rails", "~> 4.2"
+
+gem "devise_token_auth", "~> 1.2"
+
+gem "rack-cors", "~> 2.0"
+
+gem "mailgun-ruby", "~> 1.3"
