@@ -20,8 +20,13 @@ class MembersController < ApplicationController
   def create
     @member = Member.new(member_params)
 
+    @member.uid = member_params["email"]
+    @member.password = ENV["DEFAULT_PASSWORD"]
+    @member.password_confirmation = ENV["DEFAULT_PASSWORD"]
+
     respond_to do |format|
       if @member.save
+        @member.send_confirmation_instructions
         format.html { redirect_to members_path, notice: "Member was successfully created." }
         format.json { render :index, status: :created }
       else
