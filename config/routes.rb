@@ -18,4 +18,10 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "members#index"
+
+  # Expo user confirmation page
+  get "account_confirmation" => "user_confirmations#index"
+
+  # QR code page
+  get "access_code" => "qr_codes#index"
 end

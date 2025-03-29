@@ -1,0 +1,38 @@
+<nav
+    class="fixed inset-x-0 top-0 z-40 flex flex-wrap items-center justify-between w-full px-4 py-4 tracking-wide bg-white shadow-md  bg-opacity-90">
+  <!-- Left nav -->
+  <div class="flex items-center">
+    <a href="/" class="text-2xl tracking-wide text-slate-900 font-semibold">
+      Matrix Admin
+    </a>
+  </div>
+  <% if admin_signed_in? %>
+    <div class="flex items-center gap-6">
+      <% if controller_name == 'members' %>
+        <%= link_to access_code_path do %>
+          <button
+            class="flex select-none items-center gap-2 rounded bg-slate-800 py-2 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:shadow-lg hover:shadow-slate-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none cursor-pointer
+            type="button"
+          >
+            Access Code
+          </button>
+        <% end %>
+      <% end %>
+      <% if controller_name == 'qr_codes' %>
+        <%= link_to root_path do %>
+          <button
+            class="flex select-none items-center gap-2 rounded bg-slate-800 py-2 px-4 text-xs font-semibold text-white shadow-md shadow-slate-900/10 transition-all hover:shadow-lg hover:shadow-slate-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none cursor-pointer
+            type="button"
+          >
+            Members
+          </button>
+        <% end %>
+      <% end %>
+      <%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
+        <button class="whitespace-nowrap px-2 py-2 text-xs font-bold uppercase rounded-md hover:text-red-900 hover:bg-red-200 bg-red-300/80 text-red-900 cursor-pointer">
+          Sign out
+        </button>
+      <% end %>
+    </div>
+  <% end %>
+</nav>

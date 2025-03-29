@@ -19,24 +19,7 @@
   </head>
   <body class="*:font-sans pt-20 mx-auto max-w-7xl">
     <p class="alert"><%= alert %></p>
-    <nav
-    class="fixed inset-x-0 top-0 z-40 flex flex-wrap items-center justify-between w-full px-4 py-4 tracking-wide bg-white shadow-md  bg-opacity-90">
-      <!-- Left nav -->
-      <div class="flex items-center">
-        <a href="#" class="text-2xl tracking-wide text-slate-900 font-semibold">
-          Matrix Admin
-        </a>
-      </div>
-      <div class="flex items-center">
-        <% if admin_signed_in? %>
-          <%= link_to destroy_admin_session_path, data: {turbo_method: :delete} do %>
-            <button class="whitespace-nowrap px-2 py-1 text-xs font-bold uppercase rounded-md hover:text-red-900 hover:bg-red-200 bg-red-300/80 text-red-900">
-              Sign out
-            </button>
-          <% end %>
-        <% end %>
-      </div>
-    </nav>
+    <%= render "shared/nav" %>
     <%= yield %>
   </body>
 </html>
