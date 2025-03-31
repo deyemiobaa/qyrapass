@@ -71,3 +71,5 @@ gem "devise_token_auth", "~> 1.2"
 gem "rack-cors", "~> 2.0"
 
 gem "mailgun-ruby", "~> 1.3"
+
+gem "rqrcode", "~> 2.2"
