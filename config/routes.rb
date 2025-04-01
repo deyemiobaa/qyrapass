@@ -7,6 +7,8 @@ Rails.application.routes.draw do
     end
     namespace :v1 do
       resources :access, only: [ :create ]
+
+      resources :check, only: [ :index ]
     end
   end
 
