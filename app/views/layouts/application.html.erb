@@ -5,6 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="mobile-web-app-capable" content="yes">
+    <style>
+      .toast {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #323232;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+      }
+
+      .toast.success { background-color: green; }
+      .toast.error { background-color: red; }
+    </style>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= yield :head %>

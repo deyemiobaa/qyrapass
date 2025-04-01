@@ -1,0 +1,10 @@
+<div id="toast-partial">
+  <p class="toast <%= status %>"><%= message %></p>
+  <% if status == "success" %>
+    <audio autoplay id="toast-audio" data-controller="toast" src="<%= asset_path('/audios/positive.wav') %>">
+    </audio>
+  <% else %>
+    <audio autoplay id="toast-audio" data-controller="toast" src="<%= asset_path('/audios/negative.wav') %>">
+    </audio>
+  <%end%>
+</div>
