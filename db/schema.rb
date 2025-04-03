@@ -15,7 +15,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_03_31_144852) do
   enable_extension "pg_catalog.plpgsql"
 
   create_table "admins", force: :cascade do |t|
-    t.string "name", default: "Matrix Admin"
+    t.string "name", default: "Admin"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
