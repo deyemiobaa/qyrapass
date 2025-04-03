@@ -4,7 +4,7 @@ class DeviseCreateAdmins < ActiveRecord::Migration[8.0]
   def change
     create_table :admins do |t|
       ## Database authenticatable
-      t.string :name, default: "Matrix Admin"
+      t.string :name, default: "QP Admin"
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
