@@ -15,6 +15,7 @@ test:
 
 staging:
   adapter: postgresql
+  url: <%= ENV["DATABASE_URL"] %>
   connects_to:
     database:
       writing: cable
@@ -23,6 +24,7 @@ staging:
 
 production:
   adapter: postgresql
+  url: <%= ENV["DATABASE_URL"] %>
   connects_to:
     database:
       writing: cable
